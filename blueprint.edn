@@ -1,0 +1,11 @@
+[{:itonami.blueprint/social-impact [:trade-facilitation :border-integrity :public-transparency]
+  :itonami.blueprint/domain :public-safety/customs-border-inspection-documentation
+  :itonami.blueprint/required-technologies [:robotics :identity :audit-ledger]
+  :itonami.blueprint/isco-08 "3351"
+  :itonami.blueprint/name "Customs and Border Inspection Documentation Support"
+  :itonami.blueprint/governor :customs-inspection-governor
+  :itonami.blueprint/robotics true
+  :db/id -1
+  :itonami.blueprint/status :public-oss
+  :itonami.blueprint/id "cloud-itonami-isco-3351"
+  :itonami.blueprint/license "AGPL-3.0-or-later"}]
