@@ -91,7 +91,7 @@
        registered `:max-supply-order-cost`.
     9. low confidence (< `confidence-floor`)."
   (:require [customsinspection.store :as store]
-            [clojure.string :as str]))
+            [kotoba.lang.text :as str]))
 
 (def confidence-floor 0.6)
 
@@ -118,7 +118,7 @@
    "issue a penalty" "issued a penalty" "issues a penalty"])
 
 (defn- scope-excluded-text? [s]
-  (let [s (str/lower-case (or s ""))]
+  (let [s (str/lower (or s ""))]
     (boolean (some #(str/includes? s %) enforcement-scope-exclusion-phrases))))
 
 (defn- needs-facility? [op]
