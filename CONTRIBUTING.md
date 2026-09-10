@@ -21,7 +21,7 @@ behavior.
 - **Never add an op, code path or rationale template that authorizes a
   search, orders a seizure, orders a detention, denies entry, or issues a
   citation/penalty.** Those actions are structurally out of scope for this
-  actor (see `src/customsinspection/governor.cljc`'s namespace docstring),
+  actor (see `src/customsinspection/governor.kotoba`'s namespace docstring),
   not merely gated — a PR proposing to add such an op, even behind an
   escalation gate, will be rejected regardless of how it is framed.
 - Treat this occupation's workflows as high-risk: add tests for permission,
