@@ -23,7 +23,7 @@ absence is enforced twice, independently: a closed op-allowlist that
 hard-blocks any op outside the four above, and a defense-in-depth text
 scan that hard-blocks any proposal whose rationale claims to finalize
 or execute one of those actions. See
-[`src/customsinspection/governor.cljc`](src/customsinspection/governor.cljc)'s
+[`src/customsinspection/governor.cljk`](src/customsinspection/governor.cljk)'s
 namespace docstring for the full structural argument. Any observation
 that MAY warrant a search/seizure/detention/entry-denial is surfaced
 ONLY via `:flag-inspection-concern`, which always escalates
