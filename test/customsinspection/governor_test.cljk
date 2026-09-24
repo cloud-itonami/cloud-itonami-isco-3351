@@ -1,5 +1,5 @@
 (ns customsinspection.governor-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [customsinspection.store :as store]
             [customsinspection.advisor :as advisor]
             [customsinspection.governor :as governor]))
