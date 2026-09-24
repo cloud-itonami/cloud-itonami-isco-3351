@@ -1,0 +1,35 @@
+;; What this occupation's robot physically does, declared for
+;; kotoba.robotics.process (kotoba-lang/robotics). `kbb -M:physics` runs it.
+;;
+;; README "Robotics premise": a documentation and logistics-coordination robot
+;; performs declaration/manifest/inspection-log data entry, lane-staffing
+;; scheduling and equipment-procurement paperwork (ISCO 3351 customs and
+;; border inspectors); it never searches, seizes or detains. Its physical
+;; work taken here is logistics only: moving inspection equipment between
+;; lanes, and lifting a declared parcel onto the inspection table for the
+;; human officer.
+;;
+;; Every number without a cited source is marked `estimate` in its :basis.
+;; Replacing an estimate with a sourced value is this bot's growth work.
+{:physics/schema "itonami.physical-ai.spec.v1"
+ :repo "cloud-itonami/cloud-itonami-isco-3351"
+ :cases
+ [{:id :equipment-cart-between-lanes
+   :kind :transport
+   :procedure "robot moves the lane-equipment cart (portable scanner, sample kits) 120 m between inspection lanes"
+   :params {:mass-kg 70.0 :distance-m 120.0 :v-max-mps 1.2 :a-max-mps2 0.4
+            :brake-decel-mps2 0.8 :drive-force-n 180.0 :crr 0.02
+            :cog-height-m 0.70 :support-half-length-m 0.35}
+   :sweep {:param :payload-kg :values [20.0 50.0 100.0 200.0 400.0]}
+   :quantity :cycle-time-s
+   :limit {:max 120.0 :basis "estimate: equipment reaches the reassigned lane within 2 minutes of the staffing change"}
+   :boundary {:lo 10.0 :hi 800.0}}
+  {:id :parcel-to-inspection-table
+   :kind :manipulator
+   :procedure "arm lifts a declared parcel from the conveyor onto the inspection table for the human officer (no opening, no search)"
+   :params {:l1-m 0.60 :l2-m 0.55 :m1-kg 10.0 :m2-kg 7.0
+            :from [0.70 0.00] :to [0.40 0.60] :duration-s 2.5 :steps 500}
+   :sweep {:param :payload-kg :values [1.0 5.0 10.0 15.0 20.0]}
+   :quantity :peak-tau1-nm
+   :limit {:max 250.0 :basis "estimate: continuous shoulder torque of a ~15 kg-payload collaborative arm"}
+   :boundary {:lo 0.5 :hi 60.0}}]}
