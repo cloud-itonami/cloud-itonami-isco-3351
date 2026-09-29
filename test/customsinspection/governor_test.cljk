@@ -106,7 +106,7 @@
       (is (not (some #(= :enforcement-authority-scope-exclusion (:rule %)) (:violations v)))))))
 
 ;; -- default mock-advisor proposals must never self-trip the governor --
-;; This is the dedicated regression test CLAUDE.md calls for: the
+;; This is the dedicated regression test AGENTS.md calls for: the
 ;; governor's own scope-exclusion term list must never accidentally
 ;; match inside the mock advisor's own default rationale text.
 
